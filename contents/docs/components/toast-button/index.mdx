@@ -53,22 +53,22 @@ The `<ToastButton/>` component uses the [Button](https://ui.shadcn.com/docs/comp
     </TabsList>
     <TabsContent value="pnpm">
         ```
-        pnpm dlx shadcn@latest add http://uploadthingui.vercel.com/r/toast-button.json
+        pnpm dlx shadcn@latest add http://uploadthingui.vercel.app/r/toast-button.json
         ```
     </TabsContent>
     <TabsContent value="npm">
         ```
-        npx shadcn@latest add http://uploadthingui.vercel.com/r/toast-button.json
+        npx shadcn@latest add http://uploadthingui.vercel.app/r/toast-button.json
         ```
     </TabsContent>
     <TabsContent value="yarn">
         ```
-        yarn dlx shadcn@latest add http://uploadthingui.vercel.com/r/toast-button.json
+        yarn dlx shadcn@latest add http://uploadthingui.vercel.app/r/toast-button.json
         ```
     </TabsContent>
     <TabsContent value="bun">
         ```
-        bunx shadcn@latest add http://uploadthingui.vercel.com/r/toast-button.json
+        bunx shadcn@latest add http://uploadthingui.vercel.app/r/toast-button.json
         ```
     </TabsContent>
 
@@ -89,6 +89,16 @@ import ToastButton from "@/components/uploadthingui/toast-button";
   showDetails
 />
 ```
+
+Make sure to add the `sonner` inside your `layout.tsx` as well
+
+````javascript
+import { Toaster } from 'sonner';
+```
+
+```javascript
+<Toaster />
+````
 
 <br />
 ## Props
@@ -247,4 +257,4 @@ your `core.ts`, instead add them at the component level.
 <br />
 ## Change Log
 <hr />
-No changes made uptill today :)
+No changes made uptill today :) ````
