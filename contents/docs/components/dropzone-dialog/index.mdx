@@ -1,0 +1,249 @@
+---
+title: Dropzone Dialog
+description: An upload button component which opens up a dialog with a dropzone and uses toasts as its response method.
+---
+
+<Note type="warning">
+  All uploadthing functions like `.onUploadComplete` will run on each file as
+  each file upload will run its own `startUpload`.
+</Note>
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <br />
+    <UTUIDropzoneDialog />
+  </TabsContent>
+  <TabsContent value="code">
+    ```javascript
+    "use client";
+
+    import DropzoneDialog from "@/components/uploadthingui/dropzone-dialog";
+
+    export default function DropzoneDialogGeneral() {
+        return (
+            <DropzoneDialog props={{ endpoint: "imageUploader" }} instanceId="dropzone-dialog" />
+        );
+    }
+
+    ```
+
+  </TabsContent>
+</Tabs>
+
+<br />
+## About
+<hr />
+
+The `<DropzoneDialog/>` component uses the [Button](https://ui.shadcn.com/docs/components/button), [Sonner](https://ui.shadcn.com/docs/components/sonner), [Dialog](https://ui.shadcn.com/docs/components/dialog), [Tooltip](https://ui.shadcn.com/docs/components/tooltip) and [Drawer](https://ui.shadcn.com/docs/components/drawer)
+
+<br />
+## Installation
+<hr />
+
+<Tabs defaultValue="pnpm">
+    <TabsList>
+        <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+        <TabsTrigger value="npm">npm</TabsTrigger>
+        <TabsTrigger value="yarn">yarn</TabsTrigger>
+        <TabsTrigger value="bun">bun</TabsTrigger>
+    </TabsList>
+    <TabsContent value="pnpm">
+        ```
+        pnpm dlx shadcn@latest add http://uploadthingui.vercel.com/r/dropzone-dialog.json
+        ```
+    </TabsContent>
+    <TabsContent value="npm">
+        ```
+        npx shadcn@latest add http://uploadthingui.vercel.com/r/dropzone-dialog.json
+        ```
+    </TabsContent>
+    <TabsContent value="yarn">
+        ```
+        yarn dlx shadcn@latest add http://uploadthingui.vercel.com/r/dropzone-dialog.json
+        ```
+    </TabsContent>
+    <TabsContent value="bun">
+        ```
+        bunx shadcn@latest add http://uploadthingui.vercel.com/r/dropzone-dialog.json
+        ```
+    </TabsContent>
+
+</Tabs>
+
+<br />
+## Usage
+<hr />
+
+```javascript
+import DropzoneDialog from "@/components/uploadthingui/dropzone-dialog";
+```
+
+```javascript
+<DropzoneDialog
+  props={{ endpoint: "imageUploader" }}
+  instanceId="dropzone-dialog-general"
+/>
+```
+
+<br />
+## Props
+<hr />
+
+| Name                  | Type         | Required | Default | Description                                                                                                                                                 |
+| --------------------- | ------------ | -------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| props                 | uploadthing  | yes      | -       | Accepts all the props that are available with [uploadthing](https://docs.uploadthing.com/api-reference/react#props) <br/><br/> Only the `endpoint` required |
+| showDetails           | boolean      | no       | true    | Show the details/metadata for the upload route endpoint                                                                                                     |
+| instanceId            | string       | yes      | -       | This will be used as an identifier if multiple file upload buttons are used at the same time <br/><br/> Better to add to avoid duplication of file uploads  |
+| allowInBetweenUploads | boolean      | no       | true    | Whether to allow in between uploads <br/><br/> If `false` then when files are being uploaded, no new files can be uploaded.                                 |
+| routeDetails          | routeDetails | no       | -       | Additional details for the upload; Example: maxFileCount, minFileCount, etc. <br/><br/>Recommended to add these details here instead of your route.         |
+| children              | ReactNode    | no       | -       | Any node written will take the place of the action button                                                                                                   |
+
+<br />
+## Examples
+<hr />
+
+### Custom Action Button
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <br />
+    <UTUIDropzoneDialogCustomActionButton />
+  </TabsContent>
+  <TabsContent value="code">
+    ```javascript
+    "use client";
+
+    import DropzoneDialog from "@/components/uploadthingui/dropzone-dialog";
+
+    export default function DropzoneDialogCustomActionButton() {
+        return (
+            <DropzoneDialog props={{ endpoint: "imageUploader" }} instanceId="dropzone-dialog-custom-action-button">
+                <Button>Custom Action Button</Button>
+            </DropzoneDialog>
+        );
+    }
+
+    ```
+
+  </TabsContent>
+</Tabs>
+
+<br />
+### Route Details
+<hr />
+
+<Note title="Note" type="danger">
+Add route details (`minFileCount` & `maxFileCount`) here and not inside your
+`core.ts`. Reason is because as each file upload runs its own `startUpload`.
+
+If a route has a `minFileCount` set to `2` then that condition will never be
+hit on route level. Thus you shouldn't add both of these properties inside
+your `core.ts`, instead add them at the component level.
+
+</Note>
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <br />
+    <UTUIDropzoneDialogRouteDetails />
+  </TabsContent>
+  <TabsContent value="code">
+    ```javascript
+    "use client";
+
+    import DropzoneDialog from "@/components/uploadthingui/dropzone-dialog";
+
+    export default function DropzoneDialogRouteDetails() {
+        return (
+            <DropzoneDialog props={{ endpoint: "imageUploader" }} instanceId="dropzone-dialog-route-details" routeDetails={{ minFileCount: 2, maxFileCount: 5 }} />
+        );
+    }
+    ```
+
+  </TabsContent>
+</Tabs>
+
+<br />
+### Allow In Between Uploads
+<hr />
+
+<Note title="Note" type="note">
+  Set to `true` by default. When set to `false` you won't be able to upload any
+  files when a file is being uploaded.
+</Note>
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <br />
+    <UTUIDropzoneDialogAllowInBetweenUploads />
+  </TabsContent>
+  <TabsContent value="code">
+    ```javascript
+    "use client";
+
+    import DropzoneDialog from "@/components/uploadthingui/dropzone-dialog";
+
+    export default function ToastButtonWithoutMetadata() {
+        return (
+            <DropzoneDialog props={{ endpoint: "imageUploader" }} instanceId="dropzone-dialog-allow-in-between-uploads" allowInBetweenUploads={false} />
+        );
+    }
+    ```
+
+  </TabsContent>
+</Tabs>
+
+<br />
+### Without metadata
+<hr />
+
+<Note title="Note" type="note">
+  Set to `true` by default. When set to `false` you'll not see the additional
+  details about the route.
+</Note>
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+    <br />
+    <UTUIDropzoneDialogWithoutMetadata />
+  </TabsContent>
+  <TabsContent value="code">
+    ```javascript
+    "use client";
+
+    import DropzoneDialog from "@/components/uploadthingui/dropzone-dialog";
+
+    export default function DropzoneDialogWithoutMetadata() {
+        return (
+            <DropzoneDialog props={{ endpoint: "imageUploader" }} instanceId="dropzone-dialog-without-metadata" showDetails={false} />
+        );
+    }
+    ```
+
+  </TabsContent>
+</Tabs>
+
+<br />
+## Change Log
+<hr />
+No changes made uptill today :)

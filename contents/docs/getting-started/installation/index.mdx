@@ -1,0 +1,47 @@
+---
+title: Installation
+description: How to install dependencies and structure your uploadthingui folders.
+---
+
+<Note type="note" title="Information">
+  These dependencies will be installed automatically when you install a
+  component however you'll have to add the relevant files in their allocated
+  locations
+</Note>
+
+## [Uploadthing](https://docs.uploadthing.com)
+
+<hr />
+The project ontop of which these upload components exist. You can follow this [official
+guide for Next.js App Router](https://docs.uploadthing.com/getting-started/appdir)
+to get started
+
+For management reasons a new `utils` file named `uploadthingui-utils` will automatically created inside your `/lib` `folder` whenever you download a component from uploadthingui.
+
+After following the guide make sure you have your:
+
+- `route.ts` and `core.ts` inside your `/api/uploadthing`.
+- `uploadthing.ts` inside your `/lib`.
+
+<br />
+## [Zustand](https://zustand.docs.pmnd.rs)
+<hr />
+Used as the main state management solution. Its robut, enables efficient and predictable
+development experience.
+
+For management reasons a new `/stores` `folder` will be created
+which will hold relevant store files as different components might require abit differently
+structured store files.
+
+For most upload components a single store file would be used.
+
+<br />
+## [Lucide React](https://lucide.dev)
+<hr />
+Used for beautiful open source vector files. Really easy to use.
+
+<br />
+## [Cuid2](https://github.com/paralleldrive/cuid2)
+<hr />
+Used for unique ID generation for files. Its secure, collision resistant and optimized
+for horizontal scailing and performance.
