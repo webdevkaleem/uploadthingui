@@ -6,7 +6,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "img.freepik.com/**",
+        hostname: "1nc21dil75.ufs.sh",
+        pathname: "/f/**",
       },
     ],
   },
