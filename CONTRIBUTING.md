@@ -8,8 +8,6 @@ If you need any help, feel free to reach out to [@webdevkaleem](https://x.com/we
 
 ## About this repository
 
----
-
 This is a normal repo.
 
 - We use [pnpm](https://pnpm.io/installation) and [shadcn registry](https://ui.shadcn.com/docs/registry) for development
