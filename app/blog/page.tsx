@@ -11,7 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "AriaDocs - Blog",
+  title: "UploadthingUI - Blog",
 };
 
 export default async function BlogIndexPage() {
@@ -88,9 +88,8 @@ function AvatarGroup({ users, max = 4 }: { users: Author[]; max?: number }) {
       {displayUsers.map((user, index) => (
         <Avatar
           key={user.username}
-          className={`inline-block border-2 w-9 h-9 border-background ${
-            index !== 0 ? "-ml-3" : ""
-          } `}
+          className={`inline-block border-2 w-9 h-9 border-background ${index !== 0 ? "-ml-3" : ""
+            } `}
         >
           <AvatarImage src={user.avatar} alt={user.username} />
           <AvatarFallback>

@@ -5,7 +5,7 @@ description: An upload button component which uses toasts as its response method
 
 <Note type="warning">
   All uploadthing functions like `.onUploadComplete` will run on each file as
-  each file upload will run its own `startUpload`.
+  each file upload runs its own `startUpload`.
 </Note>
 
 <Tabs defaultValue="preview">
@@ -90,7 +90,7 @@ import ToastButton from "@/components/uploadthingui/toast-button";
 />
 ```
 
-Make sure to add the `sonner` component inside of your `layout.tsx`.
+Make sure to add the `sonner` component inside your `layout.tsx`.
 
 ```javascript:app/layout.tsx {1, 9}
 import { Toaster } from 'sonner';
@@ -114,11 +114,11 @@ export default function RootLayout({ children }) {
 
 | Name                  | Type         | Required | Default | Description                                                                                                                                                 |
 | --------------------- | ------------ | -------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| props                 | uploadthing  | yes      | -       | Accepts all the props that are available with [uploadthing](https://docs.uploadthing.com/api-reference/react#props) <br/><br/> Only the `endpoint` required. <br/><br/>  Note that the `endpoint` isn't typesafe. |
+| props                 | uploadthing  | yes      | -       | Accepts all the props that are available with [uploadthing](https://docs.uploadthing.com/api-reference/react#props) <br/><br/> Only the `endpoint` is required. <br/><br/>  Note that the `endpoint` isn't type-safe. |
 | showDetails           | boolean      | no       | false   | Show the details/metadata for the upload route endpoint                                                                                                     |
-| instanceId            | string       | yes      | -       | This will be used as an identifier if multiple file upload buttons are used at the same time <br/><br/> Better to add to avoid duplication of file uploads  |
-| allowInBetweenUploads | boolean      | no       | true    | Whether to allow in between uploads <br/><br/> If `false` then when files are being uploaded, no new files can be uploaded.                                 |
-| routeDetails          | routeDetails | no       | -       | Additional details for the upload; Example: maxFileCount, minFileCount, etc. <br/><br/>Recommended to add these details here instead of your route.         |
+| instanceId            | string       | yes      | -       | This will be used as an identifier if multiple file upload buttons are used at the same time <br/><br/> It's recommended to add this to avoid duplication of file uploads  |
+| allowInBetweenUploads | boolean      | no       | true    | Whether to allow in-between uploads <br/><br/> If `false`, then when files are being uploaded, no new files can be uploaded.                                 |
+| routeDetails          | routeDetails | no       | -       | Additional details for the upload; Example: maxFileCount, minFileCount, etc. <br/><br/>It's recommended to add these details here instead of in your route.         |
 | children              | ReactNode    | no       | -       | Any node written will take the place of the action button                                                                                                   |
 
 <br />
@@ -161,11 +161,11 @@ export default function RootLayout({ children }) {
 
 <Note title="Note" type="danger">
 Add route details (`minFileCount` & `maxFileCount`) here and not inside your
-`core.ts`. Reason is because as each file upload runs its own `startUpload`.
+`core.ts`. This is because each file upload runs its own `startUpload`.
 
-If a route has a `minFileCount` set to `2` then that condition will never be
-hit on route level. Thus you shouldn't add both of these properties inside
-your `core.ts`, instead add them at the component level.
+If a route has a `minFileCount` set to `2`, then that condition will never be
+met at the route level. Therefore, you shouldn't add these properties inside
+your `core.ts`; instead, add them at the component level.
 
 </Note>
 
@@ -186,7 +186,7 @@ your `core.ts`, instead add them at the component level.
 
     export default function ToastButtonRouteDetails() {
         return (
-            <ToastButton props={{ endpoint: "imageUploader" }} instanceId="toast-button-route-details" routeDetails={{ minFileCount: 2, maxFileCount: 5 }} />
+            <ToastButton props={{ endpoint: "imageUploader" }} instanceId="toast-button-route-details" routeDetails={{ minFileCount: 2, maxFileCount: 5 }} showDetails />
         );
     }
     ```
@@ -199,7 +199,7 @@ your `core.ts`, instead add them at the component level.
 <hr />
 
 <Note title="Note" type="note">
-  Set to `true` by default. When set to `false` you won't be able to upload any
+  Set to `true` by default. When set to `false`, you won't be able to upload any
   files when a file is being uploaded.
 </Note>
 
@@ -233,7 +233,7 @@ your `core.ts`, instead add them at the component level.
 <hr />
 
 <Note title="Note" type="note">
-  Set to `false` by default. When set to `true` you'll see additional details
+  Set to `false` by default. When set to `true`, you'll see additional details
   about the route.
 </Note>
 
@@ -265,4 +265,4 @@ your `core.ts`, instead add them at the component level.
 <br />
 ## Change Log
 <hr />
-No changes made uptill today :)
+No changes made until today :)

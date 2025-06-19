@@ -2,6 +2,7 @@ import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
 import { Redis } from "@upstash/redis";
 import { Ratelimit } from "@upstash/ratelimit";
+import posthog from "posthog-js";
 
 const f = createUploadthing();
 
@@ -21,11 +22,21 @@ const rateLimitMiddleware = async (req: Request) => {
     req.headers.get("x-forwarded-for") ??
     "127.0.0.1";
 
-  const { success } = await rateLimit.limit(ip);
+  const { success, reason } = await rateLimit.limit(ip);
 
   if (!success) {
+    posthog.capture("file_upload_failed", {
+      ip,
+      reason,
+    });
+
     throw new UploadThingError("Rate limit exceeded");
   }
+
+  posthog.capture("file_upload_successful", {
+    ip,
+    reason,
+  });
 
   // Otherwise, return
   return;

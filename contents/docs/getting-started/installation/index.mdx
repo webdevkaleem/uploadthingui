@@ -5,43 +5,43 @@ description: How to install dependencies and structure your uploadthingui folder
 
 <Note type="note" title="Information">
   These dependencies will be installed automatically when you install a
-  component however you'll have to add the relevant files in their allocated
+  component; however, you'll need to add the relevant files in their allocated
   locations where required.
 </Note>
 
 ## Uploadthing
 
 <hr />
-The project ontop of which these upload components exist. You can follow this [official
+The project on top of which these upload components are built. You can follow this [official
 guide for Next.js App Router](https://docs.uploadthing.com/getting-started/appdir)
 to get started.
 
-For ease of use 3 new `utility` files will be created inside of your `/lib` folder automatically. (`uploadthing.ts`, `uploadthingui-types.ts`, and `uploadthingui-utils.ts`)
+For ease of use, 3 new `utility` files will be created inside your `/lib` folder automatically: (`uploadthing.ts`, `uploadthingui-types.ts`, and `uploadthingui-utils.ts`)
 
-After following the guide make sure you have your:
+After following the guide, ensure you have your:
 
-- `route.ts` and `core.ts` inside your `/api/uploadthing`.
+- `route.ts` and `core.ts` inside your `/api/uploadthing` directory.
 
 <br />
 ## Zustand
 <hr />
-Used as the main state management solution. Its robut, enables efficient and predictable
+Used as the main state management solution. It's robust and enables efficient and predictable
 development experience. [Click here to learn more](https://zustand.docs.pmnd.rs).
 
-For management reasons a new `/stores` folder will be created
-which will hold relevant store files as different components might require abit differently
+For organizational purposes, a new `/stores` folder will be created
+which will hold relevant store files as different components might require slightly differently
 structured store files.
 
-For most upload components a single store file would be used.
+For most upload components, a single store file will be used.
 
 <br />
 ## Lucide React
 <hr />
-Used for beautiful open source vector files. Really easy to use. [Click here to learn
+Used for beautiful open-source vector icons. Very easy to use. [Click here to learn
 more](https://lucide.dev).
 
 <br />
 ## Cuid2
 <hr />
-Used for unique ID generation for files. Its secure, collision resistant and optimized
-for horizontal scailing and performance. [Click here to learn more](https://github.com/paralleldrive/cuid2).
+Used for unique ID generation for files. It's secure, collision-resistant, and optimized
+for horizontal scaling and performance. [Click here to learn more](https://github.com/paralleldrive/cuid2).
