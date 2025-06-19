@@ -2,7 +2,7 @@ import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
 import { Redis } from "@upstash/redis";
 import { Ratelimit } from "@upstash/ratelimit";
-import posthog from "posthog-js";
+import { PostHog } from "posthog-node";
 
 const f = createUploadthing();
 
@@ -16,6 +16,14 @@ const rateLimit = new Ratelimit({
   limiter: Ratelimit.slidingWindow(6, "60s"),
 });
 
+// Initialize PostHog server-side client
+const posthog = new PostHog(
+  process.env.NEXT_PUBLIC_POSTHOG_KEY as string,
+  {
+    host: process.env.NEXT_PUBLIC_POSTHOG_HOST as string,
+  }
+);
+
 const rateLimitMiddleware = async (req: Request) => {
   const ip =
     req.headers.get("x-real-ip") ??
@@ -25,20 +33,29 @@ const rateLimitMiddleware = async (req: Request) => {
   const { success, reason } = await rateLimit.limit(ip);
 
   if (!success) {
-    posthog.capture("file_upload_failed", {
-      ip,
-      reason,
+    posthog.capture({
+      distinctId: ip,
+      event: "file_upload_rate_limited",
+      properties: {
+        ip,
+        reason,
+        endpoint: "imageUploader",
+      },
     });
 
     throw new UploadThingError("Rate limit exceeded");
   }
 
-  posthog.capture("file_upload_successful", {
-    ip,
-    reason,
+  posthog.capture({
+    distinctId: ip,
+    event: "file_upload_rate_limit_check_passed",
+    properties: {
+      ip,
+      reason,
+      endpoint: "imageUploader",
+    },
   });
 
-  // Otherwise, return
   return;
 };
 
@@ -64,9 +81,25 @@ export const ourFileRouter = {
       // Whatever is returned here is accessible in onUploadComplete as `metadata`
       return {};
     })
-    .onUploadComplete(async ({ metadata, file }) => {
-      console.log("file url", file.ufsUrl);
-      console.log("metadata", metadata);
+    .onUploadComplete(async ({ file, req }) => {
+      // Capture successful upload event
+      const ip =
+        req.headers.get("x-real-ip") ??
+        req.headers.get("x-forwarded-for") ??
+        "127.0.0.1";
+
+
+      posthog.capture({
+        distinctId: ip,
+        event: "file_upload_completed",
+        properties: {
+          ip,
+          fileUrl: file.ufsUrl,
+          fileName: file.name,
+          fileSize: file.size,
+          endpoint: "imageUploader",
+        },
+      });
 
       // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
       return {};
