@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.2.1](https://github.com/webdevkaleem/uploadthingui/compare/v1.2.0...v1.2.1) (2025-06-19)
+
+
+### Bug Fixes
+
+* **route:** used posthog-node for server-side capture events ([c62e615](https://github.com/webdevkaleem/uploadthingui/commit/c62e615530785b77c7c6fdb2e20b37cd6d8f9c67))
+
 ## [1.2.0](https://github.com/webdevkaleem/uploadthingui/compare/v1.1.5...v1.2.0) (2025-06-19)
 
 
