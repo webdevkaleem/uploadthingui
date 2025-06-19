@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.1.5](https://github.com/webdevkaleem/uploadthingui/compare/v1.1.4...v1.1.5) (2025-06-19)
+
+
+### Bug Fixes
+
+* **component:** removing internal styling ([eb828b9](https://github.com/webdevkaleem/uploadthingui/commit/eb828b938f37d5d71dc8511eeff8b45f1afbc18a))
+
 ## [1.1.4](https://github.com/webdevkaleem/uploadthingui/compare/v1.1.3...v1.1.4) (2025-06-19)
 
 
