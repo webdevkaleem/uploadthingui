@@ -74,6 +74,22 @@ The `<DropzoneDialog/>` component uses the [Button](https://ui.shadcn.com/docs/c
 
 </Tabs>
 
+<br />
+## Usage
+<hr />
+
+```javascript
+import DropzoneDialog from "@/components/uploadthingui/dropzone-dialog";
+```
+
+```javascript
+<DropzoneDialog
+  props={{ endpoint: "imageUploader" }}
+  instanceId="dropzone-dialog-general"
+/>
+```
+
+
 Make sure to add the `sonner` component inside of your `layout.tsx`.
 
 ```javascript:app/layout.tsx {1, 9}
@@ -90,21 +106,6 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
-```
-
-<br />
-## Usage
-<hr />
-
-```javascript
-import DropzoneDialog from "@/components/uploadthingui/dropzone-dialog";
-```
-
-```javascript
-<DropzoneDialog
-  props={{ endpoint: "imageUploader" }}
-  instanceId="dropzone-dialog-general"
-/>
 ```
 
 <br />
