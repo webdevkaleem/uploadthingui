@@ -6,7 +6,7 @@ description: How to install dependencies and structure your uploadthingui folder
 <Note type="note" title="Information">
   These dependencies will be installed automatically when you install a
   component however you'll have to add the relevant files in their allocated
-  locations
+  locations where required.
 </Note>
 
 ## Uploadthing
@@ -16,12 +16,11 @@ The project ontop of which these upload components exist. You can follow this [o
 guide for Next.js App Router](https://docs.uploadthing.com/getting-started/appdir)
 to get started.
 
-For management reasons a new `utils` file named `uploadthingui-utils` will automatically created inside your `/lib` `folder` whenever you download a component from uploadthingui.
+For ease of use 3 new `utility` files will be created inside of your `/lib` folder automatically. (`uploadthing.ts`, `uploadthingui-types.ts`, and `uploadthingui-utils.ts`)
 
 After following the guide make sure you have your:
 
 - `route.ts` and `core.ts` inside your `/api/uploadthing`.
-- `uploadthing.ts` inside your `/lib`.
 
 <br />
 ## Zustand
@@ -29,7 +28,7 @@ After following the guide make sure you have your:
 Used as the main state management solution. Its robut, enables efficient and predictable
 development experience. [Click here to learn more](https://zustand.docs.pmnd.rs).
 
-For management reasons a new `/stores` `folder` will be created
+For management reasons a new `/stores` folder will be created
 which will hold relevant store files as different components might require abit differently
 structured store files.
 

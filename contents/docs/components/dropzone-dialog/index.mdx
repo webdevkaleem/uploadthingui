@@ -38,7 +38,7 @@ description: An upload button component which opens up a dialog with a dropzone 
 ## About
 <hr />
 
-The `<DropzoneDialog/>` component uses the [Button](https://ui.shadcn.com/docs/components/button), [Sonner](https://ui.shadcn.com/docs/components/sonner), [Dialog](https://ui.shadcn.com/docs/components/dialog), [Tooltip](https://ui.shadcn.com/docs/components/tooltip) and [Drawer](https://ui.shadcn.com/docs/components/drawer)
+The `<DropzoneDialog/>` component uses the [Button](https://ui.shadcn.com/docs/components/button), [Sonner](https://ui.shadcn.com/docs/components/sonner), [Dialog](https://ui.shadcn.com/docs/components/dialog), [Tooltip](https://ui.shadcn.com/docs/components/tooltip) and [Drawer](https://ui.shadcn.com/docs/components/drawer).
 
 <br />
 ## Installation
@@ -74,6 +74,24 @@ The `<DropzoneDialog/>` component uses the [Button](https://ui.shadcn.com/docs/c
 
 </Tabs>
 
+Make sure to add the `sonner` component inside of your `layout.tsx`.
+
+```javascript:app/layout.tsx {1, 9}
+import { Toaster } from 'sonner';
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <head />
+      <body>
+        <main>{children}</main>
+        <Toaster />
+      </body>
+    </html>
+  )
+}
+```
+
 <br />
 ## Usage
 <hr />
@@ -95,7 +113,7 @@ import DropzoneDialog from "@/components/uploadthingui/dropzone-dialog";
 
 | Name                  | Type         | Required | Default | Description                                                                                                                                                 |
 | --------------------- | ------------ | -------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| props                 | uploadthing  | yes      | -       | Accepts all the props that are available with [uploadthing](https://docs.uploadthing.com/api-reference/react#props) <br/><br/> Only the `endpoint` required |
+| props                 | uploadthing  | yes      | -       | Accepts all the props that are available with [uploadthing](https://docs.uploadthing.com/api-reference/react#props) <br/><br/> Only the `endpoint` required. <br/><br/>  Note that the `endpoint` isn't typesafe. |
 | showDetails           | boolean      | no       | true    | Show the details/metadata for the upload route endpoint                                                                                                     |
 | instanceId            | string       | yes      | -       | This will be used as an identifier if multiple file upload buttons are used at the same time <br/><br/> Better to add to avoid duplication of file uploads  |
 | allowInBetweenUploads | boolean      | no       | true    | Whether to allow in between uploads <br/><br/> If `false` then when files are being uploaded, no new files can be uploaded.                                 |

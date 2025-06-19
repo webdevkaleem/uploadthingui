@@ -38,7 +38,7 @@ description: An upload button component which uses toasts as its response method
 ## About
 <hr />
 
-The `<ToastButton/>` component uses the [Button](https://ui.shadcn.com/docs/components/button), and [Sonner](https://ui.shadcn.com/docs/components/sonner)
+The `<ToastButton/>` component uses the [Button](https://ui.shadcn.com/docs/components/button) and [Sonner](https://ui.shadcn.com/docs/components/sonner).
 
 <br />
 ## Installation
@@ -90,15 +90,23 @@ import ToastButton from "@/components/uploadthingui/toast-button";
 />
 ```
 
-Make sure to add the `sonner` inside your `layout.tsx` as well
+Make sure to add the `sonner` component inside of your `layout.tsx`.
 
-````javascript
+```javascript:app/layout.tsx {1, 9}
 import { Toaster } from 'sonner';
-```
 
-```javascript
-<Toaster />
-````
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <head />
+      <body>
+        <main>{children}</main>
+        <Toaster />
+      </body>
+    </html>
+  )
+}
+```
 
 <br />
 ## Props
@@ -106,7 +114,7 @@ import { Toaster } from 'sonner';
 
 | Name                  | Type         | Required | Default | Description                                                                                                                                                 |
 | --------------------- | ------------ | -------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| props                 | uploadthing  | yes      | -       | Accepts all the props that are available with [uploadthing](https://docs.uploadthing.com/api-reference/react#props) <br/><br/> Only the `endpoint` required |
+| props                 | uploadthing  | yes      | -       | Accepts all the props that are available with [uploadthing](https://docs.uploadthing.com/api-reference/react#props) <br/><br/> Only the `endpoint` required. <br/><br/>  Note that the `endpoint` isn't typesafe. |
 | showDetails           | boolean      | no       | false   | Show the details/metadata for the upload route endpoint                                                                                                     |
 | instanceId            | string       | yes      | -       | This will be used as an identifier if multiple file upload buttons are used at the same time <br/><br/> Better to add to avoid duplication of file uploads  |
 | allowInBetweenUploads | boolean      | no       | true    | Whether to allow in between uploads <br/><br/> If `false` then when files are being uploaded, no new files can be uploaded.                                 |
