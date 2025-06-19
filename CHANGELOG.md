@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.1.4](https://github.com/webdevkaleem/uploadthingui/compare/v1.1.3...v1.1.4) (2025-06-19)
+
+
+### Bug Fixes
+
+* **components:** registry installation issue ([b379e9d](https://github.com/webdevkaleem/uploadthingui/commit/b379e9d4b2bb3a9a0b74fa4722df28ff5998489c))
+
 ## [1.1.3](https://github.com/webdevkaleem/uploadthingui/compare/v1.1.2...v1.1.3) (2025-06-12)
 
 
