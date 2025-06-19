@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.2.0](https://github.com/webdevkaleem/uploadthingui/compare/v1.1.5...v1.2.0) (2025-06-19)
+
+
+### Features
+
+* **docs:** added product .capture events from posthog ([de34283](https://github.com/webdevkaleem/uploadthingui/commit/de34283c948143dd4c1a9f6759791b2130d0dcc4))
+
 ## [1.1.5](https://github.com/webdevkaleem/uploadthingui/compare/v1.1.4...v1.1.5) (2025-06-19)
 
 
