@@ -1,4 +1,4 @@
-import { ExpandedRouteConfig, FileRouterInputKey } from "@uploadthing/shared";
+import { type ExpandedRouteConfig, type FileRouterInputKey } from "@uploadthing/shared";
 
 export function getFileSizeFormatted(size: number) {
   if (size < 1024) return `${size} B`;

@@ -5,53 +5,48 @@
   "items": [
     {
       "name": "toast-button",
-      "type": "registry:block",
+      "type": "registry:component",
       "title": "Toast Button",
       "description": "An upload button component which uses toasts as its response method",
-      "registryDependencies": ["sonner", "button"],
+      "registryDependencies": [
+        "sonner",
+        "button"
+      ],
       "dependencies": [
-        "lucide-react@^0.435.0",
-        "@paralleldrive/cuid2@^2.2.2",
-        "uploadthing@^7.7.2",
-        "@uploadthing/react@^7.3.1",
-        "@uploadthing/shared@^7.1.8"
+        "lucide-react",
+        "@paralleldrive/cuid2",
+        "uploadthing",
+        "@uploadthing/react",
+        "@uploadthing/shared"
       ],
       "files": [
         {
           "path": "registry/new-york/toast-button/toast-button.tsx",
-          "type": "registry:block",
+          "type": "registry:component",
           "target": "components/uploadthingui/toast-button.tsx"
         },
         {
           "path": "stores/main.ts",
-          "type": "registry:lib",
+          "type": "registry:file",
           "target": "stores/main.ts"
         },
         {
           "path": "lib/uploadthingui-utils.ts",
-          "type": "registry:lib",
-          "target": "lib/uploadthingui-utils.ts"
+          "type": "registry:lib"
         },
         {
           "path": "lib/uploadthing.ts",
-          "type": "registry:lib",
-          "target": "lib/uploadthing.ts"
+          "type": "registry:lib"
         },
         {
-          "path": "registry/new-york/common/action-button/action-button.tsx",
-          "type": "registry:component",
-          "target": "components/uploadthingui/common/action-button.tsx"
-        },
-        {
-          "path": "registry/new-york/common/button-details/button-details.tsx",
-          "type": "registry:component",
-          "target": "components/uploadthingui/common/button-details.tsx"
+          "path": "lib/uploadthingui-types.ts",
+          "type": "registry:lib"
         }
       ]
     },
     {
       "name": "dropzone-dialog",
-      "type": "registry:block",
+      "type": "registry:component",
       "title": "Dropzone Dialog",
       "description": "An upload button component which opens up a dialog with a dropzone and uses toasts as its response method.",
       "registryDependencies": [
@@ -71,33 +66,29 @@
       "files": [
         {
           "path": "registry/new-york/dropzone-dialog/dropzone-dialog.tsx",
-          "type": "registry:block",
+          "type": "registry:component",
           "target": "components/uploadthingui/dropzone-dialog.tsx"
         },
         {
           "path": "hooks/use-media-query.tsx",
-          "type": "registry:hook",
-          "target": "hooks/use-media-query.tsx"
+          "type": "registry:hook"
         },
         {
           "path": "stores/main.ts",
-          "type": "registry:lib",
+          "type": "registry:file",
           "target": "stores/main.ts"
         },
         {
           "path": "lib/uploadthingui-utils.ts",
-          "type": "registry:lib",
-          "target": "lib/uploadthingui-utils.ts"
+          "type": "registry:lib"
         },
         {
           "path": "lib/uploadthing.ts",
-          "type": "registry:lib",
-          "target": "lib/uploadthing.ts"
+          "type": "registry:lib"
         },
         {
-          "path": "registry/new-york/common/button-details/button-details.tsx",
-          "type": "registry:component",
-          "target": "components/uploadthingui/common/button-details.tsx"
+          "path": "lib/uploadthingui-types.ts",
+          "type": "registry:lib"
         }
       ]
     }

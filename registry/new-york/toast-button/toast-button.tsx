@@ -1,15 +1,15 @@
 "use client";
 
-import ActionButton from "@/components/uploadthingui/common/action-button";
-import ButtonDetails from "@/components/uploadthingui/common/button-details";
+import { Button } from "@/components/ui/button";
 import { UploadButton, useUploadThing } from "@/lib/uploadthing";
 import {
   checkFileObjectKey,
   getFileSizeFormatted,
   truncateFileName,
 } from "@/lib/uploadthingui-utils";
-import { useFileStorageStore, UTUIFile } from "@/stores/main";
+import { useFileStorageStore, type UTUIFile } from "@/stores/main";
 import { createId } from "@paralleldrive/cuid2";
+import { Upload } from "lucide-react";
 import { useEffect, useRef, type ComponentProps } from "react";
 import { toast } from "sonner";
 import { generatePermittedFileTypes } from "uploadthing/client";
@@ -267,11 +267,10 @@ function UploadingToast({
           removeFiles(instanceId, file.id);
 
           return {
-            message: `${
-              currentFile?.error
-                ? truncateFileName(currentFile.error, 32)
-                : "Failed to upload!"
-            }`,
+            message: `${currentFile?.error
+              ? truncateFileName(currentFile.error, 32)
+              : "Failed to upload!"
+              }`,
             description: `${truncateFileName(
               file.file.name
             )} - (${getFileSizeFormatted(file.file.size)})`,
@@ -291,4 +290,69 @@ function UploadingToast({
 
   // Returning null because the toast is rendered by the useUploadThing hook
   return null;
+}
+
+/**
+ * @description A conditional button component that will render a custom button component if provided, otherwise it will render a default button component.
+ * @param {function} handleFileButtonClick - Function to handle the file button click event.
+ * @param {boolean} disabled - Whether to disable the button.
+ * @param {React.ReactNode} children - React node to render a custom button component.
+ */
+function ActionButton({
+  handleFileButtonClick,
+  disabled,
+  children,
+}: {
+  handleFileButtonClick: () => void;
+  disabled?: boolean;
+  children: React.ReactNode;
+}) {
+  // If a custom button has returned then render that and attach the onClick handler to it
+  if (children) {
+    return <div onClick={handleFileButtonClick}>{children}</div>;
+  }
+
+  // Otherwise render the default button component
+  return (
+    <Button
+      className="w-fit"
+      onClick={handleFileButtonClick}
+      disabled={disabled}
+    >
+      <Upload className="w-4 h-4" />
+      <span className="ml-2">Upload</span>
+    </Button>
+  );
+}
+
+/**
+ * @description A component that displays the details of the upload button.
+ * @param {string} acceptedFileTypes - The accepted file types.
+ * @param {number} maxFileCount - The maximum number of files that can be uploaded.
+ * @param {string} maxFileSize - The maximum file size that can be uploaded.
+ */
+function ButtonDetails({
+  acceptedFileTypes,
+  maxFileCount,
+  maxFileSize,
+  minFileCount,
+}: {
+  acceptedFileTypes: string;
+  maxFileCount: number;
+  maxFileSize: string;
+  minFileCount: number;
+}) {
+  // [1]. JSX
+  return (
+    <div className="flex gap-2 flex-wrap items-center justify-center text-sm">
+      <span className="text-center">Allowed type: {acceptedFileTypes}</span>
+      <span className="text-center">
+        Atleast {minFileCount > 1 ? minFileCount : 1} file(s)
+      </span>
+      {maxFileCount > 0 && (
+        <span className="text-center">Atmost {maxFileCount} file(s)</span>
+      )}
+      <span className="text-center">Up to {maxFileSize} each</span>
+    </div>
+  );
 }
