@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.2.2](https://github.com/webdevkaleem/uploadthingui/compare/v1.2.1...v1.2.2) (2025-06-19)
+
+
+### Bug Fixes
+
+* **registry:** added the versions back & space removed from readme ([09f9d35](https://github.com/webdevkaleem/uploadthingui/commit/09f9d35fe5800a6242b84284dfc0987e74ac0713))
+
 ## [1.2.1](https://github.com/webdevkaleem/uploadthingui/compare/v1.2.0...v1.2.1) (2025-06-19)
 
 
