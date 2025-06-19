@@ -32,7 +32,7 @@ import {
   truncateFileName,
 } from "@/lib/uploadthingui-utils";
 import { cn } from "@/lib/utils";
-import { useFileStorageStore, UTUIFile } from "@/stores/main";
+import { useFileStorageStore, type UTUIFile } from "@/stores/main";
 import { createId } from "@paralleldrive/cuid2";
 import { useDropzone } from "@uploadthing/react";
 import {
@@ -119,9 +119,6 @@ export default function DropzoneDialog({
     obj: routeConfig,
   });
 
-  // If the file route options are not found then return
-  if (!fileRouteOptions) return;
-
   // [2]. Handlers
   // Used to handle the dropzone drop event
   const onDrop = useCallback(
@@ -164,6 +161,9 @@ export default function DropzoneDialog({
     // Close the dialog
     setOpen(false);
   }
+
+  // If the file route options are not found then return
+  if (!fileRouteOptions) return;
 
   // [3]. JSX
   if (isDesktop) {
@@ -352,9 +352,10 @@ function DropzoneDialogAndDrawerActionButton({
 }) {
   // /* If a custom button has returned then render that and attach the onClick handler to it
   if (children && isValidElement(children)) {
-    return cloneElement(children as React.ReactElement, {
+    return cloneElement(children as React.ReactElement<any>, {
       onClick,
       disabled,
+      ...(children as React.ReactElement<any>).props,
     }) as React.ReactElement;
   }
 

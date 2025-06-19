@@ -118,35 +118,33 @@ export default function ToastButton({
 
   // [3]. JSX
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="flex">
-        {/* Hidden input to allow selection of files */}
-        <input
-          ref={fileInputRef}
-          type="file"
-          className="hidden"
-          multiple={
-            routeDetails?.maxFileCount === undefined ||
-            routeDetails.maxFileCount > 1
-          }
-          accept={acceptedFileTypes}
-          onChange={handleFileChange}
+    <>
+      {/* Hidden input to allow selection of files */}
+      <input
+        ref={fileInputRef}
+        type="file"
+        className="hidden"
+        multiple={
+          routeDetails?.maxFileCount === undefined ||
+          routeDetails.maxFileCount > 1
+        }
+        accept={acceptedFileTypes}
+        onChange={handleFileChange}
+      />
+      <div className="flex flex-col items-center gap-4">
+        <ActionButton
+          children={children}
+          handleFileButtonClick={handleFileButtonClick}
+          disabled={!canUpload}
         />
-        <div className="flex flex-col items-center gap-4">
-          <ActionButton
-            children={children}
-            handleFileButtonClick={handleFileButtonClick}
-            disabled={!canUpload}
+        {showDetails && (
+          <ButtonDetails
+            acceptedFileTypes={acceptedFileTypes}
+            maxFileCount={routeDetails?.maxFileCount ?? 0}
+            minFileCount={routeDetails?.minFileCount ?? 0}
+            maxFileSize={fileRouteOptions.maxFileSize}
           />
-          {showDetails && (
-            <ButtonDetails
-              acceptedFileTypes={acceptedFileTypes}
-              maxFileCount={routeDetails?.maxFileCount ?? 0}
-              minFileCount={routeDetails?.minFileCount ?? 0}
-              maxFileSize={fileRouteOptions.maxFileSize}
-            />
-          )}
-        </div>
+        )}
       </div>
       {/* Uploading toasts */}
       {files.map((file) => (
@@ -157,7 +155,7 @@ export default function ToastButton({
           instanceId={instanceId}
         />
       ))}
-    </main>
+    </>
   );
 }
 
