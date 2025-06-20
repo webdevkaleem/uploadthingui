@@ -449,7 +449,7 @@ function UploadingToast({
       toast.promise(fileUploadPromise, {
         loading: (
           <div className="flex flex-col">
-            <p>Uploading</p>
+            <p>Uploading...</p>
             <p>
               {truncateFileName(file.file.name)} (
               {getFileSizeFormatted(file.file.size)})
@@ -461,7 +461,7 @@ function UploadingToast({
           removeFiles(instanceId, file.id);
 
           return {
-            message: `Uploaded`,
+            message: `Uploaded successfully!`,
             description: `${truncateFileName(
               file.file.name
             )} - (${getFileSizeFormatted(file.file.size)})`,

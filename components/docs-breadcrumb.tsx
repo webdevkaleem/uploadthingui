@@ -13,15 +13,12 @@ export default function DocsBreadcrumb({ paths }: { paths: string[] }) {
     <div className="pb-5">
       <Breadcrumb>
         <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink>Docs</BreadcrumbLink>
-          </BreadcrumbItem>
-          {paths.map((path, index) => (
+          {paths.length > 1 && paths.map((path, index) => (
             <Fragment key={path}>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
+              {index > 0 && <BreadcrumbSeparator />}
+              <BreadcrumbItem >
                 {index < paths.length - 1 ? (
-                  <BreadcrumbLink className="a">
+                  <BreadcrumbLink className="a" href={`/docs/${path}`}>
                     {toTitleCase(path)}
                   </BreadcrumbLink>
                 ) : (

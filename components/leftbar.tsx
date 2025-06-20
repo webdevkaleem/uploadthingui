@@ -1,3 +1,4 @@
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Sheet,
   SheetClose,
@@ -5,12 +6,11 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { AlignLeftIcon } from "lucide-react";
+import DocsMenu from "./docs-menu";
 import { Logo, NavMenu } from "./navbar";
 import { Button } from "./ui/button";
-import { AlignLeftIcon } from "lucide-react";
 import { DialogTitle } from "./ui/dialog";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import DocsMenu from "./docs-menu";
 
 export function Leftbar() {
   return (
