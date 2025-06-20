@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.2.4](https://github.com/webdevkaleem/uploadthingui/compare/v1.2.3...v1.2.4) (2025-06-20)
+
+
+### Bug Fixes
+
+* **docs:** fixed the breadcrumb links & better mobile side bar ([4e4de0a](https://github.com/webdevkaleem/uploadthingui/commit/4e4de0a2d86739dd474a9d4608df4ed8f3da3dae))
+
 ## [1.2.3](https://github.com/webdevkaleem/uploadthingui/compare/v1.2.2...v1.2.3) (2025-06-19)
 
 
