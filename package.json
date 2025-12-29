@@ -35,7 +35,7 @@
     "commit-and-tag-version": "^12.5.1",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.435.0",
-    "next": "15.0.4",
+    "next": "15.0.7",
     "next-mdx-remote": "^5.0.0",
     "next-themes": "^0.3.0",
     "posthog-js": "^1.249.0",
