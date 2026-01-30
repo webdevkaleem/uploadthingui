@@ -11,6 +11,9 @@
     "registry:build": "shadcn registry:build",
     "release": "commit-and-tag-version"
   },
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "dependencies": {
     "@docsearch/css": "^4.5.3",
     "@docsearch/react": "^4.5.3",
