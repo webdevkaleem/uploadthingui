@@ -37,7 +37,7 @@ function File({ name, highlight, indicator }: FileType) {
   return (
     <div
       className={cn(
-        "flex items-center gap-1.5 w-full hover:dark:bg-neutral-900 hover:bg-neutral-100 px-3 py-1 rounded-md relative",
+        "flex items-center gap-1.5 w-full dark:hover:bg-neutral-900 hover:bg-neutral-100 px-3 py-1 rounded-md relative",
         highlight && "dark:text-blue-400 text-blue-500"
       )}
     >
@@ -48,7 +48,7 @@ function File({ name, highlight, indicator }: FileType) {
           )}-plain text-[17px] mr-[0.14rem]`}
         ></i>
       ) : (
-        <FileIcon className="sm:min-w-[1.2rem] sm:min-h-[1.2rem] sm:w-[1.2rem] sm:h-[1.2rem] min-w-[1rem] min-h-[1rem] w-[1rem] h-[1rem] text-current" />
+        <FileIcon className="sm:min-w-[1.2rem] sm:min-h-[1.2rem] sm:w-[1.2rem] sm:h-[1.2rem] min-w-4 min-h-4 w-4 h-4 text-current" />
       )}
 
       <div className="sm:text-[15px] text-[13.5px]">
@@ -92,15 +92,15 @@ function Folder({
     <div>
       <div
         className={cn(
-          "cursor-pointer flex items-center gap-1.5 w-full hover:dark:bg-neutral-900 hover:bg-neutral-00 px-3 py-1 rounded-md",
+          "cursor-pointer flex items-center gap-1.5 w-full dark:hover:bg-neutral-900 hover:bg-neutral-100 px-3 py-1 rounded-md",
           highlight && "dark:text-blue-400 text-blue-500"
         )}
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? (
-          <FolderOpenIcon className="sm:min-w-[1.2rem] sm:min-h-[1.2rem] sm:w-[1.2rem] sm:h-[1.2rem] min-w-[1rem] min-h-[1rem] w-[1rem] h-[1rem]" />
+          <FolderOpenIcon className="sm:min-w-[1.2rem] sm:min-h-[1.2rem] sm:w-[1.2rem] sm:h-[1.2rem] min-w-4 min-h-4 w-4 h-4" />
         ) : (
-          <FolderIcon className="sm:min-w-[1.2rem] sm:min-h-[1.2rem] sm:w-[1.2rem] sm:h-[1.2rem] min-w-[1rem] min-h-[1rem] w-[1rem] h-[1rem]" />
+          <FolderIcon className="sm:min-w-[1.2rem] sm:min-h-[1.2rem] sm:w-[1.2rem] sm:h-[1.2rem] min-w-4 min-h-4 w-4 h-4" />
         )}
         <div className="sm:text-[15px] text-[13.5px]">
           {name}

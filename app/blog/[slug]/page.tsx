@@ -47,7 +47,7 @@ export default async function BlogPage(props: PageProps) {
       <Link
         className={buttonVariants({
           variant: "link",
-          className: "!mx-0 !px-0 mb-7 !-ml-1 ",
+          className: "mx-0! px-0! mb-7 -ml-1! ",
         })}
         href="/blog"
       >
@@ -65,7 +65,7 @@ export default async function BlogPage(props: PageProps) {
           <Authors authors={res.frontmatter.authors} />
         </div>
       </div>
-      <div className="!w-full">
+      <div className="w-full!">
         <div className="w-full mb-7">
           <Image
             src={res.frontmatter.cover}

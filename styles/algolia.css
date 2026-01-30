@@ -1,3 +1,5 @@
+@reference "../styles/globals.css";
+
 :root {
     --docsearch-primary-color: hsl(var(--primary)) !important;
     --docsearch-text-color: hsl(var(--foreground)) !important;
@@ -33,15 +35,15 @@
 }
 
 .DocSearch-Button {
-    @apply pl-4 ml-0 sm:w-52 !w-full rounded-md bg-muted/55 !important
+    @apply pl-4! ml-0! sm:w-52! w-full! rounded-md! bg-muted/55!
 }
 
 .DocSearch-Button-Placeholder {
-    @apply ml-1 text-muted-foreground text-[14px] flex font-code !important
+    @apply ml-1! text-muted-foreground! text-[14px]! flex! font-code!
 }
 
 .DocSearch-Search-Icon {
-    @apply w-4 h-4 text-muted-foreground !important
+    @apply w-4! h-4! text-muted-foreground!
 }
 
 .DocSearch-Button-Keys {
@@ -53,7 +55,7 @@
 }
 
 .DocSearch-Input {
-    @apply text-[15px] !important
+    @apply text-[15px]!
 }
 
 .DocSearch-SearchBar {
@@ -61,7 +63,7 @@
 }
 
 .DocSearch-Cancel {
-    @apply text-[13px] !important
+    @apply text-[13px]!
 }
 
 .DocSearch-Hit-action>svg, .DocSearch-Reset>svg {
