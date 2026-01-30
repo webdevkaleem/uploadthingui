@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.3.0](https://github.com/webdevkaleem/uploadthingui/compare/v1.2.4...v1.3.0) (2026-01-30)
+
 ## [1.2.4](https://github.com/webdevkaleem/uploadthingui/compare/v1.2.3...v1.2.4) (2025-06-20)
 
 
