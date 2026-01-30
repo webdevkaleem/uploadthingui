@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@docsearch/css": "^4.5.3",
-    "@docsearch/react": "^3.9.0",
+    "@docsearch/react": "^4.5.3",
     "@paralleldrive/cuid2": "^2.2.2",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-avatar": "^1.1.0",
