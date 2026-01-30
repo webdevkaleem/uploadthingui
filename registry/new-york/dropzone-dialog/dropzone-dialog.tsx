@@ -271,7 +271,7 @@ export default function DropzoneDialog({
               </div>
             </DrawerTitle>
             <DrawerDescription asChild>
-              <div className="relative max-h-[50%] overflow-hidden py-4">
+              <div className="relative h-full overflow-hidden py-4">
                 {/* Dropzone */}
                 <div
                   className="absolute top-0 left-0 w-full h-full"
