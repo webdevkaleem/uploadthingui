@@ -2,6 +2,8 @@
 @import url('./algolia.css') layer(base);
 
 @import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+@plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
 

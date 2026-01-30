@@ -1,3 +1,5 @@
+@reference "../styles/globals.css";
+
 :root {
     --docsearch-primary-color: hsl(var(--primary)) !important;
     --docsearch-text-color: hsl(var(--foreground)) !important;
