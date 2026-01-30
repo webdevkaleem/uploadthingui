@@ -92,7 +92,7 @@ function Folder({
     <div>
       <div
         className={cn(
-          "cursor-pointer flex items-center gap-1.5 w-full dark:hover:bg-neutral-900 hover:bg-neutral-00 px-3 py-1 rounded-md",
+          "cursor-pointer flex items-center gap-1.5 w-full dark:hover:bg-neutral-900 hover:bg-neutral-100 px-3 py-1 rounded-md",
           highlight && "dark:text-blue-400 text-blue-500"
         )}
         onClick={() => setIsOpen(!isOpen)}
