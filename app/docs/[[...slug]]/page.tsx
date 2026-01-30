@@ -24,7 +24,7 @@ export default async function DocsPage(props: PageProps) {
         <div className="w-full mx-auto">
           <DocsBreadcrumb paths={slug} />
           <Typography>
-            <h1 className="sm:text-3xl text-2xl !-mt-0.5">
+            <h1 className="sm:text-3xl text-2xl -mt-0.5!">
               {res.frontmatter.title}
             </h1>
             <p className="-mt-4 text-muted-foreground sm:text-[16.5px] text-[14.5px]">

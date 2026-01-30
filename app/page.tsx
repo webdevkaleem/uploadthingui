@@ -14,7 +14,7 @@ export default function Home() {
         Follow along on GitHub{" "}
         <MoveUpRightIcon className="w-4 h-4 font-extrabold" />
       </Link>
-      <h1 className="text-[1.80rem] leading-8 sm:px-8 md:leading-[4.5rem] font-bold mb-4 sm:text-6xl text-left sm:text-center">
+      <h1 className="text-[1.80rem] leading-8 sm:px-8 md:leading-18 font-bold mb-4 sm:text-6xl text-left sm:text-center">
         Build your uploadthing components
       </h1>
       <p className="mb-8 md:text-lg text-base  max-w-[1200px] text-muted-foreground text-left sm:text-center">
