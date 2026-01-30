@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   let url = request.nextUrl.clone();
   const hostname = url.pathname.startsWith("/ingest/static/")
     ? "us-assets.i.posthog.com"
