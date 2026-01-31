@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file. See [commit
 ## [1.4.0](https://github.com/webdevkaleem/uploadthingui/compare/v1.3.0...v1.4.0) (2026-01-31)
 
 
+### Features
+
+* enabled PostHog session replay, heatmaps, and tracing headers
+
 ### Bug Fixes
 
 * added changelog notes ([edb15e1](https://github.com/webdevkaleem/uploadthingui/commit/edb15e15a7e22083dfeee794a7736e14c19cc404))
