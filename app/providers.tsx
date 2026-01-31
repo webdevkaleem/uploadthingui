@@ -13,6 +13,14 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
     posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY as string, {
       api_host: "/ingest",
       ui_host: "https://us.posthog.com",
+      autocapture: true,
+      capture_pageview: true,
+      capture_pageleave: true,
+      session_recording: {},
+      disable_session_recording: false,
+      __add_tracing_headers: true,
+      enable_heatmaps: true,
+      capture_heatmaps: true,
     });
   }, []);
 
