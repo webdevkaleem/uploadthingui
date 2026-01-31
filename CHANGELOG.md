@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.4.0](https://github.com/webdevkaleem/uploadthingui/compare/v1.3.0...v1.4.0) (2026-01-31)
+
+
+### Bug Fixes
+
+* added changelog notes ([edb15e1](https://github.com/webdevkaleem/uploadthingui/commit/edb15e15a7e22083dfeee794a7736e14c19cc404))
+* posthog event analytics with the proper options added ([ea26b2f](https://github.com/webdevkaleem/uploadthingui/commit/ea26b2f2f280dd0433614ca34a836cb51668e00f))
+
 ## [1.3.0](https://github.com/webdevkaleem/uploadthingui/compare/v1.2.4...v1.3.0) (2026-01-30)
 
 This release introduces major framework upgrades to React 19 and Next.js 16, bringing improved performance, new features, and enhanced developer experience, while requiring migration steps for existing implementations.
