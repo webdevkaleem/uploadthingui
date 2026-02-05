@@ -2,6 +2,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { page_routes } from "@/lib/routes-config";
 import { MoveUpRightIcon, TerminalSquareIcon } from "lucide-react";
 import Link from "next/link";
+import CountDisplay from "./_components/count-display";
 
 export default function Home() {
   return (
@@ -44,23 +45,26 @@ export default function Home() {
         </Link>{" "}
         . Open Source. Open Code.
       </p>
-      <div className="sm:flex sm:flex-row grid grid-cols-2 items-center sm;gap-5 gap-3 mb-8">
-        <Link
-          href={`/docs${page_routes[0].href}`}
-          className={buttonVariants({ className: "px-6", size: "lg" })}
-        >
-          Get Stared
-        </Link>
-        <Link
-          href="/docs/components"
-          className={buttonVariants({
-            variant: "secondary",
-            className: "px-6",
-            size: "lg",
-          })}
-        >
-          Browse Components
-        </Link>
+      <div className="flex gap-4 items-center justify-center flex-col">
+        <div className="sm:flex sm:flex-row grid grid-cols-2 items-center sm;gap-5 gap-3">
+          <Link
+            href={`/docs${page_routes[0].href}`}
+            className={buttonVariants({ className: "px-6", size: "lg" })}
+          >
+            Get Stared
+          </Link>
+          <Link
+            href="/docs/components"
+            className={buttonVariants({
+              variant: "secondary",
+              className: "px-6",
+              size: "lg",
+            })}
+          >
+            Browse Components
+          </Link>
+        </div>
+        <CountDisplay componentName="total" />
       </div>
       <span className="sm:flex hidden flex-row items-start sm:gap-2 gap-0.5 text-muted-foreground text-md mt-5 -mb-12 max-[800px]:mb-12 font-code sm:text-base text-sm font-medium">
         <TerminalSquareIcon className="w-5 h-5 sm:mr-1 mt-0.5" />
