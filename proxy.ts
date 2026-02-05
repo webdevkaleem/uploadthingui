@@ -12,7 +12,7 @@ const rateLimit = new Ratelimit({
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  if (pathname.startsWith("/ingest/static/")) {
+  if (pathname.startsWith("/ingest/")) {
     let url = request.nextUrl.clone();
     const hostname = url.pathname.startsWith("/ingest/static/")
       ? "us-assets.i.posthog.com"
