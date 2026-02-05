@@ -2,25 +2,18 @@ import { ourFileRouter } from "@/app/api/uploadthing/core";
 import { ThemeProvider } from "@/components/contexts/theme-provider";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import "@/styles/globals.css";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import type { Metadata } from "next";
-import { Space_Grotesk, Space_Mono } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import { Toaster } from "sonner";
 import { extractRouterConfig } from "uploadthing/server";
 import { PostHogProvider } from "./providers";
-import { TooltipProvider } from "@/components/ui/tooltip";
 
 const sansFont = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-geist-sans",
-  display: "swap",
-  weight: "400",
-});
-
-const monoFont = Space_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
   display: "swap",
   weight: "400",
 });
@@ -49,7 +42,7 @@ export default function RootLayout({
         <meta name="algolia-site-verification" content="44949A465972B09B" />
       </head>
       <body
-        className={`${sansFont.className} ${monoFont.className} font-regular antialiased tracking-wide`}
+        className={`${sansFont.className} font-regular antialiased tracking-wide`}
         suppressHydrationWarning
       >
         <PostHogProvider>
