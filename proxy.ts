@@ -42,7 +42,22 @@ export async function proxy(request: NextRequest) {
     }
 
     const arr = pathname.split("/");
-    const componentName = arr[arr.length - 1].replace(".json", "");
+    const rawComponent = arr[arr.length - 1].replace(".json", "");
+
+    // Decode URI component and trim any trailing slashes/whitespace
+    let componentName: string;
+    try {
+      componentName = decodeURIComponent(rawComponent).replace(/\/+$/, "").trim();
+    } catch {
+      // Invalid URI encoding
+      return new Response("Invalid component name", { status: 400 });
+    }
+
+    // Validate against allowed pattern: non-empty, alphanumeric with hyphens/underscores
+    const VALID_COMPONENT_PATTERN = /^[A-Za-z0-9_-]+$/;
+    if (!componentName || !VALID_COMPONENT_PATTERN.test(componentName)) {
+      return new Response("Invalid component name", { status: 400 });
+    }
 
     try {
       await redis.incr(`registry:views:${componentName}`);
