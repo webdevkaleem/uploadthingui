@@ -20,8 +20,10 @@ export default async function DocsPage(props: PageProps) {
   const res = await getCompiledDocsForSlug(pathName);
 
   const componentName = pathName.split("/")[1];
+  const displayCount = componentName?.length && componentName?.length > 0 && pathName.includes("components");
 
   if (!res) notFound();
+
   return (
     <div className="flex items-start gap-10">
       <div className="flex-[4.5] py-10 mx-auto">
@@ -32,7 +34,7 @@ export default async function DocsPage(props: PageProps) {
               <h1 className="sm:text-3xl text-2xl">
                 {res.frontmatter.title}
               </h1>
-              <CountDisplay componentName={componentName} />
+              {displayCount && <CountDisplay componentName={componentName} />}
             </div>
 
 
