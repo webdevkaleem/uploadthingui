@@ -4,6 +4,22 @@ import { NextRequest, NextResponse } from "next/server";
 
 const redis = Redis.fromEnv();
 
+// Matcher to limit proxy execution to specific routes only
+export const config = {
+  matcher: [
+    // PostHog ingest routes
+    "/ingest/:path*",
+    // Registry JSON files - skip prefetch requests
+    {
+      source: "/r/:component*.json",
+      missing: [
+        { type: "header", key: "next-router-prefetch" },
+        { type: "header", key: "purpose", value: "prefetch" },
+      ],
+    },
+  ],
+};
+
 const rateLimit = new Ratelimit({
   redis,
   limiter: Ratelimit.slidingWindow(12, "60s"),
@@ -29,7 +45,7 @@ export async function proxy(request: NextRequest) {
     return NextResponse.rewrite(url, {
       headers: requestHeaders,
     });
-  } else if (pathname.startsWith("/r/")) {
+  } else if (pathname.startsWith("/r/") && pathname.endsWith(".json")) {
     const ip =
       request.headers.get("x-real-ip") ??
       request.headers.get("x-forwarded-for") ??
@@ -60,8 +76,16 @@ export async function proxy(request: NextRequest) {
     }
 
     try {
-      await redis.incr(`registry:views:${componentName}`);
-      await redis.incr(`registry:views:total`);
+      // Deduplicate: Only count if this IP hasn't fetched this component in the last 10 seconds
+      const dedupeKey = `registry:dedupe:${ip}:${componentName}`;
+      const alreadyCounted = await redis.get(dedupeKey);
+      
+      if (!alreadyCounted) {
+        // Set dedupe key with 10 second expiry
+        await redis.set(dedupeKey, "1", { ex: 10 });
+        await redis.incr(`registry:views:${componentName}`);
+        await redis.incr(`registry:views:total`);
+      }
     } catch (error) {
       console.error("Redis counter increment failed:", error);
     }
