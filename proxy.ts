@@ -44,8 +44,12 @@ export async function proxy(request: NextRequest) {
     const arr = pathname.split("/");
     const componentName = arr[arr.length - 1].replace(".json", "");
 
-    await redis.incr(`registry:views:${componentName}`);
-    await redis.incr(`registry:views:total`);
+    try {
+      await redis.incr(`registry:views:${componentName}`);
+      await redis.incr(`registry:views:total`);
+    } catch (error) {
+      console.error("Redis counter increment failed:", error);
+    }
 
     return NextResponse.next();
   }

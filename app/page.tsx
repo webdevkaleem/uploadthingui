@@ -46,12 +46,12 @@ export default function Home() {
         . Open Source. Open Code.
       </p>
       <div className="flex gap-4 items-center justify-center flex-col">
-        <div className="sm:flex sm:flex-row grid grid-cols-2 items-center sm;gap-5 gap-3">
+        <div className="sm:flex sm:flex-row grid grid-cols-2 items-center sm:gap-5 gap-3">
           <Link
             href={`/docs${page_routes[0].href}`}
             className={buttonVariants({ className: "px-6", size: "lg" })}
           >
-            Get Stared
+            Get Started
           </Link>
           <Link
             href="/docs/components"
