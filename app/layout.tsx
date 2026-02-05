@@ -49,7 +49,7 @@ export default function RootLayout({
         <meta name="algolia-site-verification" content="44949A465972B09B" />
       </head>
       <body
-        className={`${sansFont.variable} ${monoFont.variable} font-regular antialiased tracking-wide`}
+        className={`${sansFont.className} ${monoFont.className} font-regular antialiased tracking-wide`}
         suppressHydrationWarning
       >
         <PostHogProvider>
