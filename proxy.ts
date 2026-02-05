@@ -1,7 +1,13 @@
+import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 import { NextRequest, NextResponse } from "next/server";
 
 const redis = Redis.fromEnv();
+
+const rateLimit = new Ratelimit({
+  redis,
+  limiter: Ratelimit.slidingWindow(12, "60s"),
+});
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
@@ -24,6 +30,17 @@ export async function proxy(request: NextRequest) {
       headers: requestHeaders,
     });
   } else if (pathname.startsWith("/r/")) {
+    const ip =
+      request.headers.get("x-real-ip") ??
+      request.headers.get("x-forwarded-for") ??
+      "127.0.0.1";
+
+    const { success } = await rateLimit.limit(ip);
+
+    if (!success) {
+      return new Response("Rate limit exceeded", { status: 429 });
+    }
+
     const arr = pathname.split("/");
     const componentName = arr[arr.length - 1].replace(".json", "");
 
@@ -31,7 +48,7 @@ export async function proxy(request: NextRequest) {
     await redis.incr(`registry:views:total`);
 
     return NextResponse.next();
-  } 
+  }
 
   return NextResponse.next();
 }
