@@ -38,7 +38,7 @@ export default async function DocsPage(props: PageProps) {
             </div>
 
 
-            <p className="-mt-4 text-muted-foreground sm:text-[16.5px] text-[14.5px]">
+            <p className="text-muted-foreground sm:text-[16.5px] text-[14.5px]">
               {res.frontmatter.description}
             </p>
             <div>{res.content}</div>
