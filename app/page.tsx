@@ -2,7 +2,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { page_routes } from "@/lib/routes-config";
 import { MoveUpRightIcon, TerminalSquareIcon } from "lucide-react";
 import Link from "next/link";
-import CountDisplay from "./_components/count-display";
+import CountDisplay from "@/components/count-display";
 
 export default function Home() {
   return (
