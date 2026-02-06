@@ -10,7 +10,6 @@ import { Space_Grotesk } from "next/font/google";
 import { Toaster } from "sonner";
 import { extractRouterConfig } from "uploadthing/server";
 import { PostHogProvider } from "./providers";
-import { Analytics } from '@vercel/analytics/next';
 
 const sansFont = Space_Grotesk({
   subsets: ["latin"],
@@ -47,8 +46,6 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <PostHogProvider>
-          <Analytics />
-
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
