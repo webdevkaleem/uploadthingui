@@ -47,8 +47,6 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <PostHogProvider>
-          <Analytics />
-
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -73,6 +71,7 @@ export default function RootLayout({
               <Footer />
             </TooltipProvider>
           </ThemeProvider>
+          <Analytics />
         </PostHogProvider>
       </body>
     </html>
