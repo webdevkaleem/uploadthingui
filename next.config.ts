@@ -11,8 +11,8 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // if used turbopack
-  // transpilePackages: ["next-mdx-remote"],
+  // Required for next-mdx-remote when using Turbopack.
+  transpilePackages: ["next-mdx-remote"],
 
   // This is required to support PostHog trailing slash API requests
   skipTrailingSlashRedirect: true,
