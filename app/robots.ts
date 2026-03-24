@@ -1,15 +1,5 @@
+import { getSiteUrl } from "@/lib/site-url";
 import type { MetadataRoute } from "next";
-
-const DEFAULT_SITE_URL = "https://uploadthingui.webdevkaleem.com";
-
-function getSiteUrl() {
-  const envUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    process.env.NEXT_PUBLIC_APP_URL ??
-    DEFAULT_SITE_URL;
-
-  return envUrl.endsWith("/") ? envUrl.slice(0, -1) : envUrl;
-}
 
 export default function robots(): MetadataRoute.Robots {
   const siteUrl = getSiteUrl();
