@@ -21,7 +21,7 @@ const sansFont = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "UploadthingUI",
-  metadataBase: new URL("https://uploadthingui.webdevkaleem.com/"),
+  metadataBase: new URL("https://uploadthingui.vercel.app/"),
   description:
     "A set of beautifully-designed, accessible components for building uploadthing components. Built for Next.js with Shadcn Registry. Open Source. Open Code.",
   icons: [{ rel: "icon", url: "/uploadthingui_logo.png" }],
@@ -40,6 +40,7 @@ export default function RootLayout({
           type="text/css"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
+        <meta name="algolia-site-verification" content="44949A465972B09B" />
       </head>
       <body
         className={`${sansFont.className} font-regular antialiased tracking-wide`}
