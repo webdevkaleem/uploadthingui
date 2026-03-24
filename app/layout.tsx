@@ -21,7 +21,7 @@ const sansFont = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "UploadthingUI",
-  metadataBase: new URL("https://uploadthingui.vercel.app/"),
+  metadataBase: new URL("https://uploadthingui.webdevkaleem.com/"),
   description:
     "A set of beautifully-designed, accessible components for building uploadthing components. Built for Next.js with Shadcn Registry. Open Source. Open Code.",
   icons: [{ rel: "icon", url: "/uploadthingui_logo.png" }],

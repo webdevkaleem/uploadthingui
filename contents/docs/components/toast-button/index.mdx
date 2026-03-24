@@ -53,22 +53,22 @@ The `<ToastButton/>` component uses the [Button](https://ui.shadcn.com/docs/comp
     </TabsList>
     <TabsContent value="pnpm">
         ```
-        pnpm dlx shadcn@latest add https://uploadthingui.vercel.app/r/toast-button.json
+        pnpm dlx shadcn@latest add https://uploadthingui.webdevkaleem.com/r/toast-button.json
         ```
     </TabsContent>
     <TabsContent value="npm">
         ```
-        npx shadcn@latest add https://uploadthingui.vercel.app/r/toast-button.json
+        npx shadcn@latest add https://uploadthingui.webdevkaleem.com/r/toast-button.json
         ```
     </TabsContent>
     <TabsContent value="yarn">
         ```
-        yarn dlx shadcn@latest add https://uploadthingui.vercel.app/r/toast-button.json
+        yarn dlx shadcn@latest add https://uploadthingui.webdevkaleem.com/r/toast-button.json
         ```
     </TabsContent>
     <TabsContent value="bun">
         ```
-        bunx shadcn@latest add https://uploadthingui.vercel.app/r/toast-button.json
+        bunx shadcn@latest add https://uploadthingui.webdevkaleem.com/r/toast-button.json
         ```
     </TabsContent>
 
@@ -112,14 +112,14 @@ export default function RootLayout({ children }) {
 ## Props
 <hr />
 
-| Name                  | Type         | Required | Default | Description                                                                                                                                                 |
-| --------------------- | ------------ | -------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| props                 | uploadthing  | yes      | -       | Accepts all the props that are available with [uploadthing](https://docs.uploadthing.com/api-reference/react#props) <br/><br/> Only the `endpoint` is required. <br/><br/>  Note that the `endpoint` isn't type-safe. |
-| showDetails           | boolean      | no       | false   | Show the details/metadata for the upload route endpoint                                                                                                     |
-| instanceId            | string       | yes      | -       | This will be used as an identifier if multiple file upload buttons are used at the same time <br/><br/> It's recommended to add this to avoid duplication of file uploads  |
-| allowInBetweenUploads | boolean      | no       | true    | Whether to allow in-between uploads <br/><br/> If `false`, then when files are being uploaded, no new files can be uploaded.                                 |
-| routeDetails          | routeDetails | no       | -       | Additional details for the upload; Example: maxFileCount, minFileCount, etc. <br/><br/>It's recommended to add these details here instead of in your route.         |
-| children              | ReactNode    | no       | -       | Any node written will take the place of the action button                                                                                                   |
+| Name                  | Type         | Required | Default | Description                                                                                                                                                                                                          |
+| --------------------- | ------------ | -------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| props                 | uploadthing  | yes      | -       | Accepts all the props that are available with [uploadthing](https://docs.uploadthing.com/api-reference/react#props) <br/><br/> Only the `endpoint` is required. <br/><br/> Note that the `endpoint` isn't type-safe. |
+| showDetails           | boolean      | no       | false   | Show the details/metadata for the upload route endpoint                                                                                                                                                              |
+| instanceId            | string       | yes      | -       | This will be used as an identifier if multiple file upload buttons are used at the same time <br/><br/> It's recommended to add this to avoid duplication of file uploads                                            |
+| allowInBetweenUploads | boolean      | no       | true    | Whether to allow in-between uploads <br/><br/> If `false`, then when files are being uploaded, no new files can be uploaded.                                                                                         |
+| routeDetails          | routeDetails | no       | -       | Additional details for the upload; Example: maxFileCount, minFileCount, etc. <br/><br/>It's recommended to add these details here instead of in your route.                                                          |
+| children              | ReactNode    | no       | -       | Any node written will take the place of the action button                                                                                                                                                            |
 
 <br />
 ## Examples
