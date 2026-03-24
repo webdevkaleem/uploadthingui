@@ -40,7 +40,6 @@ export default function RootLayout({
           type="text/css"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
-        <meta name="algolia-site-verification" content="44949A465972B09B" />
       </head>
       <body
         className={`${sansFont.className} font-regular antialiased tracking-wide`}
