@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "uploadthingui",
-  "homepage": "https://uploadthingui.webdevkaleem.com",
+  "homepage": "https://uploadthingui.vercel.app",
   "items": [
     {
       "name": "toast-button",
