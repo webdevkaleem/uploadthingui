@@ -8,7 +8,7 @@ A set of beautifully-designed, accessible components for building [Uploadthing](
 
 ## Documentation
 
-Visit [https://uploadthingui.vercel.app](https://uploadthingui.webdevkaleem.com) to view the documentation.
+Visit [https://uploadthingui.webdevkaleem.com](https://uploadthingui.webdevkaleem.com) to view the documentation.
 
 <br/>
 
